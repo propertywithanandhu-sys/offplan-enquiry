@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Property Talk with Anandhu — Get in Touch</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --y: #F5CC30;
+    --y-dark: #8A6E00;
+    --y-mid: #F7D84A;
+    --y-light: #FFFDE8;
+    --y-pale: #FFFEFC;
+    --page: #FEFDF8;
+    --card: #FFFFFF;
+    --border: #EDEAD8;
+    --t1: #1A1908;
+    --t2: #5C5A48;
+    --t3: #9C9A80;
+    --fd: 'Playfair Display', serif;
+    --fb: 'Figtree', sans-serif;
+    --r: 10px;
+  }
+
+  body {
+    background: var(--page);
+    color: var(--t1);
+    font-family: var(--fb);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bar {
+    width: 100%;
+    background: var(--y);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .yt-badge {
+    width: 20px; height: 14px;
+    background: #FF0000;
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .yt-badge::after {
+    content: '';
+    border-left: 7px solid #fff;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    margin-left: 1px;
+  }
+
+  .bar-brand {
+    font-family: var(--fd);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--t1);
+    text-decoration: none;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 540px;
+    padding: 44px 20px 80px;
+  }
+
+  .intro {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+    animation: up .55s ease both;
+  }
+
+  .av {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--y-light);
+    border: 2.5px solid var(--y);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--fd);
+    font-size: 22px; font-weight: 500;
+    color: var(--y-dark);
+    flex-shrink: 0;
+  }
+
+  .intro-text h1 {
+    font-family: var(--fd);
+    font-size: clamp(21px, 4.5vw, 27px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--t1);
+    margin-bottom: 4px;
+  }
+
+  .intro-text h1 em { font-style: italic; color: var(--y-dark); }
+
+  .intro-text p {
+    font-size: 13px;
+    color: var(--t2);
+    line-height: 1.5;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 2px 24px rgba(245,204,48,0.1), 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+    animation: up .55s .1s ease both;
+  }
+
+  .sec {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sec:last-of-type { border-bottom: none; }
+
+  .lbl {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--t3);
+    margin-bottom: 12px;
+  }
+
+  .q {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--t1);
+    margin-bottom: 12px;
+  }
+
+  .hint {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--t3);
+    margin-left: 3px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .row2:last-child { margin-bottom: 0; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"] {
+    width: 100%;
+    background: var(--page);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 10px 13px;
+    font-family: var(--fb);
+    font-size: 13px;
+    color: var(--t1);
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+
+  input::placeholder { color: var(--t3); }
+
+  input:focus {
+    border-color: var(--y);
+    box-shadow: 0 0 0 3px rgba(245,204,48,0.2);
+    background: #fff;
+  }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 7px; }
+
+  .pill {
+    padding: 7px 16px;
+    border-radius: 40px;
+    border: 1px solid var(--border);
+    background: var(--page);
+    color: var(--t2);
+    font-family: var(--fb);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all .14s;
+    white-space: nowrap;
+  }
+
+  .pill:hover { border-color: var(--y); color: var(--y-dark); background: var(--y-light); }
+  .pill.on { background: var(--y); border-color: var(--y); color: var(--t1); font-weight: 600; }
+
+  .bud-wrap { position: relative; }
+  .bud-wrap input { padding-right: 48px; }
+  .bud-unit {
+    position: absolute;
+    right: 12px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .06em;
+    color: var(--y-dark);
+    pointer-events: none;
+  }
+
+  .contact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  .copt {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 6px;
+    padding: 13px 6px;
+    border-radius: var(--r);
+    border: 1px solid var(--border);
+    background: var(--page);
+    color: var(--t2);
+    font-family: var(--fb);
+    font-size: 12px; font-weight: 500;
+    cursor: pointer;
+    transition: all .14s;
+  }
+
+  .copt svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .copt:hover { border-color: var(--y); color: var(--y-dark); background: var(--y-light); }
+  .copt.on { border-color: var(--y); background: var(--y-light); color: var(--y-dark); font-weight: 600; }
+
+  .foot {
+    padding: 22px 24px;
+    background: var(--y-light);
+    border-top: 1px solid rgba(245,204,48,0.3);
+  }
+
+  .submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--y);
+    color: var(--t1);
+    border: none;
+    border-radius: var(--r);
+    font-family: var(--fb);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .18s, transform .14s, box-shadow .18s;
+    box-shadow: 0 2px 12px rgba(245,204,48,0.35);
+    letter-spacing: .02em;
+  }
+
+  .submit:hover { background: var(--y-mid); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(245,204,48,0.45); }
+  .submit:active { transform: translateY(0); }
+
+  .priv {
+    text-align: center;
+    font-size: 11px;
+    color: var(--t3);
+    margin-top: 9px;
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+  }
+
+  .done { display: none; flex-direction: column; align-items: center; text-align: center; padding: 56px 24px; gap: 13px; }
+  .done.show { display: flex; }
+  .done-ring { width: 56px; height: 56px; border-radius: 50%; background: var(--y-light); border: 2.5px solid var(--y); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--y-dark); }
+  .done h2 { font-family: var(--fd); font-size: 24px; font-weight: 400; }
+  .done p { font-size: 13px; color: var(--t2); line-height: 1.65; max-width: 280px; }
+
+  .pgfoot {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--t3);
+    animation: up .55s .22s ease both;
+    line-height: 1.8;
+  }
+
+  @keyframes up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 460px) {
+    .row2 { grid-template-columns: 1fr; }
+    .sec, .foot { padding-left: 18px; padding-right: 18px; }
+    .intro { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="yt-badge"></div>
+  <a class="bar-brand" href="https://www.youtube.com/@PropertyTalkwithAnandhu" target="_blank">Property Talk with Anandhu</a>
+</div>
+
+<div class="page">
+
+  <div class="intro">
+    <div class="av">A</div>
+    <div class="intro-text">
+      <h1>Tell me what you're <em>looking for</em></h1>
+      <p>I read every enquiry personally and only reach out if I think I can genuinely help.</p>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <!-- Details -->
+    <div class="sec">
+      <div class="lbl">Your details</div>
+      <input type="text" placeholder="Your name" id="fname" style="margin-bottom:10px;" />
+      <div class="row2">
+        <input type="tel" placeholder="WhatsApp number" />
+        <input type="email" placeholder="Email address" />
+      </div>
+    </div>
+
+    <!-- Goal -->
+    <div class="sec">
+      <div class="q">What's your investment goal?</div>
+      <div class="pills">
+        <button class="pill" data-g="goal">Rental yield</button>
+        <button class="pill" data-g="goal">Capital growth</button>
+        <button class="pill" data-g="goal">Own use</button>
+        <button class="pill" data-g="goal">Holiday home</button>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="sec">
+      <div class="q">What's your timeline?</div>
+      <div class="pills">
+        <button class="pill" data-g="tl">Ready now</button>
+        <button class="pill" data-g="tl">3–6 months</button>
+        <button class="pill" data-g="tl">6–12 months</button>
+        <button class="pill" data-g="tl">12+ months</button>
+      </div>
+    </div>
+
+    <!-- Property type -->
+    <div class="sec">
+      <div class="q">What type of property? <span class="hint">select all that apply</span></div>
+      <div class="pills">
+        <button class="pill multi" data-g="type">Apartment</button>
+        <button class="pill multi" data-g="type">Townhouse</button>
+        <button class="pill multi" data-g="type">Villa</button>
+        <button class="pill multi" data-g="type">Penthouse</button>
+        <button class="pill multi other-trigger" data-g="type">Other</button>
+        <input type="text" id="type-other" placeholder="Please specify…" style="margin-top:10px;display:none;" />
+      </div>
+    </div>
+
+    <!-- Bedrooms -->
+    <div class="sec">
+      <div class="q">Bedrooms <span class="hint">select all that apply</span></div>
+      <div class="pills">
+        <button class="pill multi" data-g="bed">Studio</button>
+        <button class="pill multi" data-g="bed">1 BR</button>
+        <button class="pill multi" data-g="bed">2 BR</button>
+        <button class="pill multi" data-g="bed">3 BR</button>
+        <button class="pill multi" data-g="bed">4 BR</button>
+        <button class="pill multi" data-g="bed">5+ BR</button>
+      </div>
+    </div>
+
+    <!-- Budget -->
+    <div class="sec">
+      <div class="q">Budget range</div>
+      <div class="row2" style="margin-bottom:0;">
+        <div class="bud-wrap">
+          <input type="number" placeholder="Min" />
+          <span class="bud-unit">AED</span>
+        </div>
+        <div class="bud-wrap">
+          <input type="number" placeholder="Max" />
+          <span class="bud-unit">AED</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agent -->
+    <div class="sec">
+      <div class="q">Are you working with another agent?</div>
+      <div class="pills">
+        <button class="pill" data-g="agent">Yes</button>
+        <button class="pill" data-g="agent">No</button>
+      </div>
+    </div>
+
+    <!-- Contact method -->
+    <div class="sec">
+      <div class="q">Best way to reach you?</div>
+      <div class="contact-row">
+        <button class="copt" data-val="wa">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          WhatsApp
+        </button>
+        <button class="copt" data-val="call">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Phone
+        </button>
+        <button class="copt" data-val="email">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          Email
+        </button>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="foot">
+      <button class="submit" onclick="go()">Send enquiry →</button>
+      <div class="priv">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Kept confidential. Never shared.
+      </div>
+    </div>
+
+    <!-- Success -->
+    <div class="done" id="done">
+      <div class="done-ring">✓</div>
+      <h2>Got it, thank you</h2>
+      <p>I'll take a look and come back to you personally — usually within 24 hours.</p>
+      <div style="font-size:12px;color:var(--t3);margin-top:4px;">— Anandhu · McCone Properties</div>
+    </div>
+
+  </div>
+
+  <div class="pgfoot">
+    Property Talk with Anandhu &nbsp;·&nbsp; McCone Properties &nbsp;·&nbsp; RERA Licensed · Dubai
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.pill:not(.multi)').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll(`.pill[data-g="${b.dataset.g}"]`).forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+    });
+  });
+
+  document.querySelectorAll('.pill.multi').forEach(b => {
+    b.addEventListener('click', () => b.classList.toggle('on'));
+  });
+
+  document.querySelectorAll('.copt').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.copt').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+    });
+  });
+
+  function highlight(el) {
+    el.style.borderColor = '#E53E3E';
+    el.style.boxShadow = '0 0 0 3px rgba(229,62,62,0.1)';
+    setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 1800);
+  }
+
+  function pillSelected(group) {
+    return document.querySelector(`.pill[data-g="${group}"].on`) !== null;
+  }
+
+  function coptSelected() {
+    return document.querySelector('.copt.on') !== null;
+  }
+
+  function go() {
+    let valid = true;
+    let firstFail = null;
+
+    // Name
+    const name = document.getElementById('fname');
+    if (!name.value.trim()) { highlight(name); if (!firstFail) firstFail = name; valid = false; }
+
+    // WhatsApp
+    const phone = document.querySelector('input[placeholder="WhatsApp number"]');
+    if (!phone.value.trim()) { highlight(phone); if (!firstFail) firstFail = phone; valid = false; }
+
+    // Email
+    const email = document.querySelector('input[placeholder="Email address"]');
+    if (!email.value.trim()) { highlight(email); if (!firstFail) firstFail = email; valid = false; }
+
+    // Pill groups
+    const groups = ['goal', 'tl', 'type', 'bed', 'agent'];
+    groups.forEach(g => {
+      if (!pillSelected(g)) {
+        const sec = document.querySelector(`.pill[data-g="${g}"]`).closest('.sec');
+        sec.style.outline = '2px solid #E53E3E';
+        sec.style.borderRadius = '4px';
+        setTimeout(() => { sec.style.outline = ''; }, 1800);
+        if (!firstFail) firstFail = sec;
+        valid = false;
+      }
+    });
+
+    // Budget
+    const bMin = document.querySelector('input[placeholder="Min"]');
+    const bMax = document.querySelector('input[placeholder="Max"]');
+    if (!bMin.value.trim()) { highlight(bMin); if (!firstFail) firstFail = bMin; valid = false; }
+    if (!bMax.value.trim()) { highlight(bMax); if (!firstFail) firstFail = bMax; valid = false; }
+
+    // Contact method
+    if (!coptSelected()) {
+      const cRow = document.querySelector('.contact-row');
+      cRow.style.outline = '2px solid #E53E3E';
+      cRow.style.borderRadius = '4px';
+      setTimeout(() => { cRow.style.outline = ''; }, 1800);
+      valid = false;
+    }
+
+    if (!valid) {
+      if (firstFail) firstFail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Collect all data
+    const data = {
+      name: document.getElementById('fname').value.trim(),
+      phone: document.querySelector('input[placeholder="WhatsApp number"]').value.trim(),
+      email: document.querySelector('input[placeholder="Email address"]').value.trim(),
+      goal: document.querySelector('.pill[data-g="goal"].on')?.textContent || '',
+      timeline: document.querySelector('.pill[data-g="tl"].on')?.textContent || '',
+      propertyType: [...document.querySelectorAll('.pill[data-g="type"].on')].map(b => b.textContent).join(', '),
+      propertyOther: document.getElementById('type-other')?.value || '',
+      bedrooms: [...document.querySelectorAll('.pill[data-g="bed"].on')].map(b => b.textContent).join(', '),
+      budgetMin: document.querySelector('input[placeholder="Min"]').value,
+      budgetMax: document.querySelector('input[placeholder="Max"]').value,
+      workingWithAgent: document.querySelector('.pill[data-g="agent"].on')?.textContent || '',
+      contactVia: document.querySelector('.copt.on')?.textContent.trim() || '',
+      _subject: 'Lead from YouTube',
+      _replyto: 'propertywithanandhu@gmail.com'
+    };
+
+    const btn = document.querySelector('.submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    fetch('https://formspree.io/f/xdajjred', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+      if (res.ok || res.next) {
+        document.querySelectorAll('.sec, .foot').forEach(s => s.style.display = 'none');
+        document.getElementById('done').classList.add('show');
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    })
+    .catch(() => {
+      btn.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    });
+  }
+  document.querySelectorAll('.pill.multi.other-trigger').forEach(b => {
+    b.addEventListener('click', () => {
+      const inp = document.getElementById('type-other');
+      inp.style.display = b.classList.contains('on') ? 'block' : 'none';
+      if (b.classList.contains('on')) inp.focus();
+    });
+  });
+</script>
+</body>
+</html>
